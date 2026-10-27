@@ -113,3 +113,35 @@
   var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('draw'); io.unobserve(e.target); } }); },{threshold:.2});
   ls.forEach(function(l){ io.observe(l); });
 })();
+
+(function(){ // accessibility widget
+  var root=document.querySelector('[data-a11y-root]'); if(!root) return;
+  var fab=root.querySelector('.a11y-fab'), panel=root.querySelector('.a11y-panel'),
+      h=document.documentElement, KEY='uhyA11y',
+      TOGGLES=['contrast','links','readable','motion','cursor'];
+  function load(){try{return JSON.parse(localStorage.getItem(KEY))||{};}catch(e){return {};}}
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}}
+  var state=load();
+  function apply(){
+    TOGGLES.forEach(function(t){
+      h.classList.toggle('a11y-'+t,!!state[t]);
+      var b=root.querySelector('[data-a11y="'+t+'"]'); if(b){b.classList.toggle('active',!!state[t]);b.setAttribute('aria-pressed',!!state[t]);}
+    });
+    h.classList.remove('a11y-text1','a11y-text2');
+    if(state.text===1)h.classList.add('a11y-text1'); else if(state.text>=2)h.classList.add('a11y-text2');
+  }
+  apply();
+  function open(o){root.classList.toggle('open',o);fab.setAttribute('aria-expanded',o?'true':'false');}
+  fab.addEventListener('click',function(e){e.stopPropagation();open(!root.classList.contains('open'));});
+  root.querySelector('.a11y-x').addEventListener('click',function(){open(false);fab.focus();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&root.classList.contains('open')){open(false);fab.focus();}});
+  document.addEventListener('click',function(e){if(root.classList.contains('open')&&!root.contains(e.target))open(false);});
+  root.querySelectorAll('[data-a11y]').forEach(function(b){b.addEventListener('click',function(){
+    var k=b.getAttribute('data-a11y');
+    if(k==='bigger')state.text=Math.min(2,(state.text||0)+1);
+    else if(k==='smaller')state.text=Math.max(0,(state.text||0)-1);
+    else if(k==='reset')state={};
+    else state[k]=!state[k];
+    save();apply();
+  });});
+})();
