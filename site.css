@@ -544,3 +544,28 @@ html.a11y-readable{--serif:Arial,Helvetica,sans-serif;--sans:Arial,Helvetica,san
 html.a11y-readable body{letter-spacing:.012em;line-height:1.75}
 html.a11y-motion *,html.a11y-motion *::before,html.a11y-motion *::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
 html.a11y-cursor,html.a11y-cursor *{cursor:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><path d="M6 4l22 13-9 2-2 9z" fill="%23111" stroke="%23fff" stroke-width="1.6" stroke-linejoin="round"/></svg>') 6 4, auto}
+
+/* ---------- immersive hero variant (v2 preview only; opt-in via UHY_HERO=immersive) ---------- */
+.hero.immersive{min-height:min(100dvh,980px);background:#0b1a2e}
+.hero.immersive .hero-bg{position:absolute;inset:0;z-index:0;overflow:hidden}
+.hero.immersive .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:50% 44%;transform:scale(1.05);animation:orb 28s var(--ease2) infinite alternate}
+.hero.immersive .hero-bg::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(to left,rgba(9,18,32,.97),rgba(9,18,32,.9) 28%,rgba(9,18,32,.5) 62%,rgba(9,18,32,.1) 100%),
+             radial-gradient(900px 620px at 14% 48%,rgba(216,191,115,.12),transparent 62%),
+             linear-gradient(to top,rgba(9,18,32,.55),transparent 42%)}
+.hero.immersive .hero-grid{position:relative;z-index:2;align-items:center}
+@media (min-width:901px){.hero.immersive .hero-grid{grid-template-columns:minmax(0,min(620px,90%));justify-content:start}}
+.hero.immersive .hero-art{display:none}
+.hero.immersive h1{color:var(--paper)}
+.hero.immersive h1 em{color:var(--gold)}
+.hero.immersive .lede{color:rgba(246,244,239,.85)}
+.hero.immersive .lede strong{color:#fff}
+.hero.immersive .scroll-cue{color:rgba(246,244,239,.55)}
+[dir=ltr] .hero.immersive .hero-bg::after{background:linear-gradient(to right,rgba(9,18,32,.97),rgba(9,18,32,.9) 28%,rgba(9,18,32,.5) 62%,rgba(9,18,32,.1) 100%),radial-gradient(900px 620px at 86% 48%,rgba(216,191,115,.12),transparent 62%),linear-gradient(to top,rgba(9,18,32,.55),transparent 42%)}
+.hero.immersive .btn-ink{background:var(--gold);color:#102137;box-shadow:0 22px 46px -22px rgba(216,191,115,.5)}
+.hero.immersive .btn-ink .btn-i{background:#102137;color:var(--gold)}
+.hero.immersive .btn-ink:hover{background:var(--gold2)}
+.hero.immersive .btn-ghost{background:rgba(255,255,255,.06);color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.34)}
+.hero.immersive .btn-ghost .btn-i{background:rgba(255,255,255,.12);color:#fff}
+.hero.immersive .btn-ghost:hover{background:rgba(255,255,255,.14)}
+@media (max-width:760px){.hero.immersive .hero-bg img{object-position:50% 36%}.hero.immersive .hero-bg::after{background:linear-gradient(to top,rgba(9,18,32,.97),rgba(9,18,32,.82) 46%,rgba(9,18,32,.5))}}
