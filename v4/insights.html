@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Insights | UHY Capital</title>
+<meta name="description" content="Perspectives from UHY Capital on wealth structuring, investments, taxation and intergenerational planning.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="index.html" aria-label="UHY Capital"><img src="assets/logo/mark-1000.png" alt=""><span class="wtxt"><span class="wm">UHY&nbsp;CAPITAL</span><span class="tag">Where&nbsp;Trust&nbsp;Leads</span></span></a>
+    <nav class="menu">
+      <a href="index.html">Home</a><a href="about.html">About</a>
+      <span class="has-drop"><a href="services.html">Services <span class="caret">&#9662;</span></a><span class="drop"><a href="wealth-management.html">Wealth Management</a><a href="investment-banking.html">Investment Banking</a></span></span>
+      <a href="insights.html" class="active">Insights</a>
+    </nav>
+    <div class="nav-right">
+      <a class="lotus-link" href="lotus-one.html">LOTUS&nbsp;ONE</a>
+      <span class="lang"><a href="insights.html" class="active">EN</a><a href="he/insights.html">עב</a></span>
+      <a class="nav-cta" href="contact.html">Contact&nbsp;Us</a>
+      <button class="burger" aria-label="Menu" onclick="document.getElementById('mnav').classList.add('open')"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<div class="mnav" id="mnav"><button class="close" aria-label="Close" onclick="document.getElementById('mnav').classList.remove('open')">&times;</button>
+  <a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="insights.html">Insights</a><a href="lotus-one.html">Lotus One</a><a href="contact.html">Contact Us</a><a href="he/insights.html">עברית</a>
+</div>
+
+<section class="phero center">
+  <img class="phero-deco" src="assets/brand/lotus-open.png" alt="">
+  <div class="wrap"><p class="eyebrow">Insights</p><h1>Perspectives on wealth</h1><p>Considered views on wealth structuring, investments, taxation and intergenerational planning.</p></div>
+</section>
+
+<section class="section">
+  <div class="wrap empty rv">
+    <img src="assets/brand/lotus-line.png" alt="">
+    <h2>New insights are on the way</h2>
+    <p>We are preparing a series of professional perspectives for qualified clients. In the meantime, our partners are available for a private conversation.</p>
+    <a class="btn btn-gold" href="contact.html">Contact Us <span class="ar">&rarr;</span></a>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="fbrand"><img src="assets/logo/mark-1000.png" alt=""><span class="wm">UHY&nbsp;CAPITAL</span><p>88 Yigal Alon Street,<br>Tel-Aviv, Israel</p></div>
+      <div class="cols"><h4>Contact</h4><a href="mailto:info@uhycapital.com">info@uhycapital.com</a><a href="tel:+972777700000">+972 77 770 0000</a></div>
+      <div class="cols"><h4>Menu</h4><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="contact.html">Contact Us</a></div>
+      <div class="cols"><h4>Legal</h4><a href="privacy-policy.html">Privacy Policy</a><a href="accessibility-statement.html">Accessibility Statement</a></div>
+    </div>
+    <div class="foot-bottom"><span>© 2026 UHY Capital. All rights reserved.</span><span>Services for qualified clients only.</span></div>
+  </div>
+</footer>
+<script>
+var nav=document.getElementById('nav');addEventListener('scroll',function(){nav.classList.toggle('scrolled',scrollY>40)},{passive:true});nav.classList.toggle('scrolled',scrollY>40);
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+</script>
+</body>
+</html>
