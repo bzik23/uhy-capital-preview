@@ -303,3 +303,29 @@ footer.foot{background:var(--charcoal2);color:#aba9a6;padding-top:clamp(60px,8vw
 .empty img{width:70px;opacity:.5;margin:0 auto 24px}
 .empty h2{font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:300;margin-bottom:14px}
 .empty p{color:var(--muted);margin-bottom:26px}
+
+/* build_helit additions: 3-way lang, deep pages, contact, qc */
+.lang a{margin-inline-start:6px}
+.svc-card .num{display:block;font-size:.8rem;letter-spacing:.14em;color:var(--gold-ink,#9a7b2e);margin-bottom:10px}
+.svc-card.path{display:block;text-decoration:none;color:inherit}
+.svc-card.path .tags{list-style:none;padding:0;margin:14px 0 0;display:flex;flex-wrap:wrap;gap:6px}
+.svc-card.path .tags li{font-size:.76rem;border:1px solid var(--line);border-radius:999px;padding:4px 10px;color:var(--muted)}
+.section-head .num{display:inline-block;font-size:.8rem;letter-spacing:.14em;color:var(--gold-ink,#9a7b2e);margin-bottom:8px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,56px)}
+@media(max-width:760px){.two-col{grid-template-columns:1fr}}
+.prose h3{font-weight:500;margin:0 0 10px}
+.qc{font-size:.8rem;color:var(--muted);max-width:640px;margin-inline:auto;margin-top:18px;line-height:1.6}
+.qc-form{margin:4px 0 0;text-align:start}
+.contact-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(28px,4vw,56px);align-items:start}
+@media(max-width:860px){.contact-grid{grid-template-columns:1fr}}
+.contact-form{display:grid;gap:16px}
+.contact-form .f2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:560px){.contact-form .f2{grid-template-columns:1fr}}
+.contact-form .field{display:grid;gap:6px}
+.contact-form label{font-size:.82rem;color:var(--muted)}
+.contact-form input,.contact-form select,.contact-form textarea{font:inherit;padding:11px 14px;border:1px solid var(--line);border-radius:10px;background:#fff;color:inherit;width:100%}
+.contact-form textarea{min-height:120px;resize:vertical}
+.contact-form .check{display:flex;gap:10px;align-items:flex-start;font-size:.82rem;color:var(--muted)}
+.office .map{margin-top:18px;border-radius:12px;overflow:hidden;aspect-ratio:4/3}
+.office .map iframe{width:100%;height:100%;border:0;filter:grayscale(.3)}
+.two-paths .svc-card.path .num{font-size:.8rem}
