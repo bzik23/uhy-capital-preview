@@ -369,7 +369,11 @@ header.nav.scrolled .brand img.brand-logo{height:50px;transition:height .35s eas
 .foot .cols{display:flex;flex-direction:column;align-items:flex-start}
 .foot .cols a{display:block;width:fit-content;text-align:start}
 .foot .cols h4{text-align:start}
-@media(max-width:560px){.foot .foot-logo{height:56px}}
+@media(max-width:560px){
+  .foot-grid{grid-template-columns:1fr 1fr;gap:30px 22px}
+  .foot .foot-logo{height:56px}
+  .foot .fbrand{grid-column:1 / -1;align-items:center;text-align:center;margin-bottom:4px}
+}
 /* mobile menu: 78% side drawer with dimmed scrim (click outside closes) */
 .mnav{position:fixed;inset:0;z-index:70;background:rgba(8,10,16,0);visibility:hidden;transform:none;padding:0;display:block;transition:background .35s ease,visibility .35s ease}
 .mnav.open{background:rgba(8,10,16,.55);visibility:visible;transform:none}
@@ -383,6 +387,24 @@ header.nav.scrolled .brand img.brand-logo{height:50px;transition:height .35s eas
 .mnav a:not(.mnav-logo-link):hover,.mnav a:not(.mnav-logo-link):active{color:var(--gold);padding-inline-start:8px}
 .mnav .lo-mlink{color:var(--gold)!important;margin-top:8px;border-bottom:0!important}
 [dir=rtl] .mnav a:not(.mnav-logo-link){font-family:"Heebo",system-ui,sans-serif;font-weight:300}
+/* mobile header: language dropdown; RTL puts burger right + logo left */
+.lang-m{display:none}
+@media(max-width:900px){
+  .nav-cta{display:none}
+  .lang-m{display:block;position:relative}
+  .lang-m summary{list-style:none;cursor:pointer;color:#e7e3d8;font-size:.76rem;letter-spacing:.08em;padding:7px 13px;border:1px solid var(--gold-line);border-radius:999px;display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
+  .lang-m summary::-webkit-details-marker{display:none}
+  .lang-m summary .caret{font-size:.58rem;transition:transform .25s ease}
+  .lang-m[open] summary{color:var(--gold);border-color:var(--gold)}
+  .lang-m[open] summary .caret{transform:rotate(180deg)}
+  .lang-m-drop{position:absolute;top:calc(100% + 9px);inset-inline-end:0;background:#1d1c22;border:1px solid rgba(203,174,106,.3);border-radius:10px;padding:6px;min-width:134px;box-shadow:0 18px 42px rgba(0,0,0,.45);z-index:80;display:flex;flex-direction:column}
+  .lang-m-drop a{color:#eceae6;padding:9px 12px;border-radius:7px;font-size:.92rem;white-space:nowrap}
+  .lang-m-drop a.active{color:var(--gold)}
+  .lang-m-drop a:hover{color:var(--gold);background:rgba(255,255,255,.05)}
+  [dir=rtl] .nav-right{order:0;margin-inline-start:0}
+  [dir=rtl] .brand{order:2;margin-inline-start:auto}
+  [dir=rtl] .burger{order:-1}
+}
 /* refined section eyebrow (e.g. team heading) */
 /* slightly larger designed eyebrows across the site */
 .eyebrow{font-size:.84rem}
