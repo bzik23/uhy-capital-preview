@@ -342,8 +342,33 @@ html,body{overflow-x:hidden}
 .office .map{margin-top:18px;border-radius:12px;overflow:hidden;aspect-ratio:4/3}
 .office .map iframe{width:100%;height:100%;border:0;filter:grayscale(.3)}
 .two-paths .svc-card.path .num{font-size:.8rem}
+/* header logo image (white wordmark on the dark nav) */
+.brand img.brand-logo{height:46px;width:auto;display:block;transition:height .35s ease}
+header.nav.scrolled .brand img.brand-logo{height:40px}
+@media(max-width:560px){.brand img.brand-logo{height:36px}}
+/* refined section eyebrow (e.g. team heading) */
+.eyebrow.lux{display:inline-flex;align-items:center;justify-content:center;gap:clamp(14px,2vw,20px);font-size:.84rem;letter-spacing:.34em;margin-bottom:22px}
+.eyebrow.lux::before,.eyebrow.lux::after{content:"";display:block;width:clamp(26px,5vw,52px);height:1px;background:linear-gradient(90deg,transparent,var(--gold-line))}
+.eyebrow.lux::after{background:linear-gradient(90deg,var(--gold-line),transparent)}
+[dir=rtl] .eyebrow.lux{letter-spacing:.18em}
+/* team: shrink photo box to the image and pin it to the column's outer edge so
+   the decorative corner bracket always hugs the photo (fixes detached bracket on
+   the inner-side cards, both LTR and RTL) */
+.partner .p-photo{width:420px;max-width:100%;justify-self:start}
+.partner:nth-child(even) .p-photo{justify-self:end}
+@media(max-width:760px){
+  .partner .p-photo,.partner:nth-child(even) .p-photo{width:auto;justify-self:center;margin-inline:auto}
+  .partner .p-photo::before{display:none}
+}
+/* about "our approach": transparent plant cutout, no photo frame */
+.split-media.plant img{aspect-ratio:auto;object-fit:contain;border-radius:0;width:100%;height:auto;max-height:540px}
 
 /* v4 warm lotus hero */
-.hero.warm{background:radial-gradient(920px 540px at 50% 12%,rgba(216,191,115,.20),transparent 62%),var(--paper)}
-.hero.warm .wrap{position:relative;z-index:2}
+.hero.warm{background:radial-gradient(920px 540px at 50% 12%,rgba(216,191,115,.20),transparent 62%),var(--paper);align-items:flex-start;justify-content:flex-start;padding-top:clamp(84px,13vh,142px);padding-bottom:clamp(36px,6vh,72px)}
+.hero.warm .wrap{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center}
 .hero.warm .hero-bg-lotus{inset:auto 0 0 0;height:52%;background:url("assets/lotus-hero.jpg") no-repeat center 64%;background-size:cover;opacity:.6;-webkit-mask-image:linear-gradient(to top,#000 24%,transparent);mask-image:linear-gradient(to top,#000 24%,transparent);z-index:1}
+.hero.warm .hero-foot{max-width:720px;margin:clamp(70px,12vh,150px) auto 0;font-size:clamp(1.02rem,1.5vw,1.2rem);line-height:1.75;font-weight:300;color:var(--ink);text-shadow:0 1px 12px rgba(248,245,238,.9),0 1px 3px rgba(248,245,238,.95);position:relative;z-index:2}
+@media(max-width:560px){
+  .hero.warm{padding-top:clamp(66px,10vh,104px)}
+  .hero.warm .hero-foot{margin-top:clamp(46px,9vh,88px);font-size:.98rem}
+}
