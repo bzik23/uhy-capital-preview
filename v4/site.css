@@ -343,9 +343,27 @@ html,body{overflow-x:hidden}
 .office .map iframe{width:100%;height:100%;border:0;filter:grayscale(.3)}
 .two-paths .svc-card.path .num{font-size:.8rem}
 /* header logo image (white wordmark on the dark nav) */
-.brand img.brand-logo{height:58px;width:auto;display:block}
+.brand img.brand-logo{height:60px;width:auto;display:block}
 header.nav.scrolled .brand img.brand-logo{height:50px;transition:height .35s ease}
 @media(max-width:560px){.brand img.brand-logo{height:46px}}
+/* footer: full white logo + clean start-aligned columns (RTL+LTR) */
+.foot-grid{align-items:start}
+.foot .fbrand{display:flex;flex-direction:column;align-items:flex-start}
+.foot .fbrand img.foot-logo{height:70px;width:auto;max-width:none;margin-bottom:20px}
+.foot .fbrand p{text-align:start;margin:0}
+.foot .cols{display:flex;flex-direction:column;align-items:flex-start}
+.foot .cols a{display:block;width:fit-content;text-align:start}
+.foot .cols h4{text-align:start}
+@media(max-width:560px){.foot .foot-logo{height:56px}}
+/* mobile menu: dark, on-brand, friendly */
+.mnav{background:#141319;gap:2px;padding:84px 30px 44px;overflow-y:auto}
+.mnav .mnav-logo-link{border-bottom:0;padding:0;margin-bottom:24px}
+.mnav .mnav-logo{height:48px;width:auto}
+.mnav a:not(.mnav-logo-link){color:#eceae6;border-bottom:1px solid rgba(255,255,255,.08);letter-spacing:.02em;transition:color .25s ease,padding-inline-start .25s ease}
+.mnav a:not(.mnav-logo-link):hover,.mnav a:not(.mnav-logo-link):active{color:var(--gold);padding-inline-start:10px}
+.mnav .close{color:#d7d5d1}
+[dir=rtl] .mnav a:not(.mnav-logo-link){font-family:"Heebo",system-ui,sans-serif;font-weight:300}
+.mnav .lo-mlink{color:var(--gold);margin-top:10px}
 /* refined section eyebrow (e.g. team heading) */
 /* slightly larger designed eyebrows across the site */
 .eyebrow{font-size:.84rem}
@@ -370,16 +388,11 @@ header.nav.scrolled .brand img.brand-logo{height:50px;transition:height .35s eas
 .svc-deck{display:flex;flex-wrap:wrap;justify-content:center;gap:18px}
 .svc-deck>*{flex:0 1 calc((100% - (var(--cols,3) - 1) * 18px) / var(--cols,3));min-width:0;margin:0}
 @media(max-width:980px){.svc-deck>*{flex-basis:calc((100% - 18px) / 2)}}
-@media(max-width:720px){
-  .svc-deck{flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;gap:14px;scroll-padding-inline:6px;margin-inline:-6px;padding-inline:6px}
-  .svc-deck::-webkit-scrollbar{display:none}
-  .svc-deck>*{flex:0 0 85%;scroll-snap-align:center}
-}
 
 /* v4 warm lotus hero */
 .hero.warm{background:radial-gradient(960px 560px at 50% 10%,rgba(216,191,115,.22),transparent 62%),var(--paper);align-items:flex-start;justify-content:flex-start;padding-top:clamp(48px,7vh,88px);padding-bottom:clamp(40px,5vh,68px)}
 .hero.warm .wrap{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center}
-.hero.warm .hero-mark{margin:0 auto 20px}
+.hero.warm .hero-mark{width:clamp(80px,7.5vw,96px);margin:0 auto 24px;filter:drop-shadow(0 8px 22px rgba(203,174,106,.38)) saturate(1.15) contrast(1.06)}
 .hero.warm .lead{margin-top:20px}
 .hero.warm .hero-bg-lotus{inset:auto 0 0 0;height:56%;background:url("assets/lotus-hero.jpg") no-repeat center 62%;background-size:cover;opacity:.5;-webkit-mask-image:linear-gradient(to top,#000 18%,transparent);mask-image:linear-gradient(to top,#000 18%,transparent);z-index:1}
 /* soft paper veil over the lower lotus so the statement reads clearly */
@@ -512,4 +525,10 @@ header.nav.scrolled .brand img.brand-logo{height:50px;transition:height .35s eas
   .lo-feats>*:nth-child(1){grid-column:auto}
   .lo-grid4>*{flex-basis:100%}
   .lo-team{grid-template-columns:1fr}
+}
+/* mobile: every card group becomes an auto-advancing snap carousel */
+@media(max-width:720px){
+  .svc-deck,.svc-grid,.lo-grid4,.lo-feats,.lo-team{display:flex!important;flex-wrap:nowrap!important;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;gap:14px;padding-bottom:4px}
+  .svc-deck::-webkit-scrollbar,.svc-grid::-webkit-scrollbar,.lo-grid4::-webkit-scrollbar,.lo-feats::-webkit-scrollbar,.lo-team::-webkit-scrollbar{display:none}
+  .svc-deck>*,.svc-grid>*,.lo-grid4>*,.lo-feats>*,.lo-team>*{flex:0 0 86%!important;max-width:86%!important;scroll-snap-align:center;grid-column:auto!important;min-width:0}
 }

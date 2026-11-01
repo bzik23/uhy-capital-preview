@@ -39,6 +39,7 @@
 </header>
 <div class="mnav" id="mnav">
   <button class="close" aria-label="Close" onclick="document.getElementById('mnav').classList.remove('open')">&times;</button>
+  <a class="mnav-logo-link" href="/uhy-capital-preview/v4/index.html" onclick="document.getElementById('mnav').classList.remove('open')"><img class="mnav-logo" src="/uhy-capital-preview/v4/assets/logo/logo-white.png" alt="UHY Capital"></a>
   <a href="/uhy-capital-preview/v4/index.html">Home</a>
   <a href="/uhy-capital-preview/v4/about.html">About</a>
   <a href="/uhy-capital-preview/v4/services.html">Services</a>
@@ -74,14 +75,13 @@
   <div class="wrap">
     <div class="foot-grid">
       <div class="fbrand">
-        <img src="/uhy-capital-preview/v4/assets/logo/mark-1000.png" alt="">
-        <span class="wm">UHY&nbsp;CAPITAL</span>
+        <img class="foot-logo" src="/uhy-capital-preview/v4/assets/logo/logo-white.png" alt="UHY Capital">
         <p>88 Yigal Alon Street,<br>Tel Aviv, Israel</p>
       </div>
       <div class="cols">
         <h4>Contact</h4>
         <a href="mailto:info@uhycapital.com">info@uhycapital.com</a>
-        <a href="tel:+972777700000" dir="ltr">+972 77 770 0000</a>
+        <a href="tel:+972777700000"><span dir="ltr">+972 77 770 0000</span></a>
       </div>
       <div class="cols">
         <h4>Menu</h4>
@@ -109,7 +109,7 @@ nav.classList.toggle('scrolled',scrollY>40);
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
 document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
 if(matchMedia('(max-width:720px)').matches){
-  document.querySelectorAll('.svc-deck').forEach(function(deck){
+  document.querySelectorAll('.svc-deck,.svc-grid,.lo-grid4,.lo-feats,.lo-team').forEach(function(deck){
     var n=deck.children.length; if(n<2) return;
     var i=0, paused=false, rt;
     function go(k){var c=deck.children[k]; if(c) c.scrollIntoView({inline:'center',block:'nearest',behavior:'smooth'});}
