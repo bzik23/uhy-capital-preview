@@ -166,7 +166,7 @@ nav.classList.toggle('scrolled',scrollY>40);
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
 document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
 if(matchMedia('(max-width:720px)').matches){
-  document.querySelectorAll('.svc-deck,.svc-grid,.lo-grid4,.lo-feats,.lo-team').forEach(function(deck){
+  document.querySelectorAll('.svc-deck,.svc-grid,.lo-grid4,.lo-feats').forEach(function(deck){
     var n=deck.children.length; if(n<2) return;
     var i=0, paused=false, rt;
     function go(k){var c=deck.children[k]; if(c) c.scrollIntoView({inline:'center',block:'nearest',behavior:'smooth'});}
