@@ -120,7 +120,7 @@ if(matchMedia('(max-width:720px)').matches){
   document.querySelectorAll('.svc-deck,.svc-grid,.lo-grid4,.lo-feats').forEach(function(deck){
     var n=deck.children.length; if(n<2) return;
     var i=0, paused=false, rt;
-    function go(k){var c=deck.children[k]; if(c) c.scrollIntoView({inline:'center',block:'nearest',behavior:'smooth'});}
+    function go(k){var c=deck.children[k]; if(!c) return; var dr=deck.getBoundingClientRect(),cr=c.getBoundingClientRect(); deck.scrollBy({left:(cr.left+cr.width/2)-(dr.left+dr.width/2),behavior:'smooth'});}
     setInterval(function(){if(paused) return; i=(i+1)%n; go(i);},1500);
     deck.addEventListener('touchstart',function(){paused=true; clearTimeout(rt);},{passive:true});
     deck.addEventListener('touchend',function(){clearTimeout(rt); rt=setTimeout(function(){paused=false;},4000);},{passive:true});
