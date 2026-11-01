@@ -96,10 +96,12 @@
 </div></section>
 <section class="section lo-contact"><div class="wrap lo-contact-in">
   <div class="rv"><p class="eyebrow lux on-dark">יצירת קשר</p><h2>לקבלת מידע נוסף</h2><p class="sub">לקבלת מידע נוסף על הקרן, האסטרטגיה, ביצועי העבר ותנאי ההצטרפות, השאירו פרטים ונציג מטעמנו יצור עמכם קשר. השירות מיועד ללקוחות כשירים בלבד.</p><p class="lo-addr">יגאל אלון 88 (בניין גבאי), תל אביב, ישראל</p></div>
-  <form class="contact-form lo-form rv" novalidate>
-    <div class="f2"><div class="field"><label>שם מלא</label><input type="text" placeholder="השם שלכם"></div><div class="field"><label>טלפון</label><input type="tel" dir="ltr" placeholder="050-0000000"></div></div>
-    <div class="field"><label>דוא"ל</label><input type="email" dir="ltr" placeholder="name@company.com"></div>
-    <div class="field"><label>כיצד נוכל לסייע?</label><textarea placeholder="כמה מילים על מצבכם ועל מטרותיכם"></textarea></div>
+  <form class="contact-form lo-form rv" onsubmit="return false">
+    <p class="form-sent" id="formSent">תודה. שותף במשרד ייצור עמכם קשר בקרוב לתיאום פגישת ייעוץ פרטית.</p>
+    <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);margin:-1px"><input type="hidden" name="lang" value="he"><input type="hidden" name="back" value="/uhy-capital-preview/v4/he/lotus-one.html"><input type="hidden" name="topic" value="LOTUS ONE">
+    <div class="f2"><div class="field"><label>שם מלא</label><input type="text" name="name" required placeholder="השם שלכם"></div><div class="field"><label>טלפון</label><input type="tel" name="phone" dir="ltr" placeholder="050-0000000"></div></div>
+    <div class="field"><label>דוא"ל</label><input type="email" name="email" required dir="ltr" placeholder="name@company.com"></div>
+    <div class="field"><label>כיצד נוכל לסייע?</label><textarea name="message" placeholder="כמה מילים על מצבכם ועל מטרותיכם"></textarea></div>
     <p class="lo-fine">ללקוחות כשירים בלבד.</p>
     <button class="btn btn-gold" type="button">לתיאום פגישת ייעוץ פרטית <span class="ar">&larr;</span></button>
   </form>
@@ -181,6 +183,7 @@ function save(){try{localStorage.setItem('uhy_a11y',JSON.stringify(S));}catch(e)
 function apply(){H.classList.toggle('a11y-contrast',!!S.contrast);H.classList.toggle('a11y-links',!!S.links);H.classList.toggle('a11y-readable',!!S.readable);H.classList.toggle('a11y-no-anim',!!S.anim);H.classList.toggle('a11y-cursor',!!S.cursor);H.style.fontSize=S.fs?(100+S.fs*12)+'%':'';document.querySelectorAll('.a11y-opt[data-a11y]').forEach(function(b){var k=b.getAttribute('data-a11y');if(k!=='inc'&&k!=='dec')b.classList.toggle('on',!!S[k]);});}
 document.querySelectorAll('.a11y [data-a11y]').forEach(function(b){b.addEventListener('click',function(){var k=b.getAttribute('data-a11y');if(k==='inc'){S.fs=Math.min((S.fs||0)+1,4);}else if(k==='dec'){S.fs=Math.max((S.fs||0)-1,0);}else if(k==='reset'){S={};}else{S[k]=!S[k];}save();apply();});});
 apply();})();
+if(location.search.indexOf('sent=1')>-1){var fs=document.getElementById('formSent');if(fs){fs.style.display='block';try{fs.scrollIntoView({behavior:'smooth',block:'center'});}catch(e){}}}
 
 </script>
 </body>

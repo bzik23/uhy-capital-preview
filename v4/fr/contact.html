@@ -62,18 +62,20 @@
   </div>
 </section>
 <section class="section contact-sec"><div class="wrap contact-grid">
-  <form class="contact-form rv" novalidate>
+  <form class="contact-form rv" onsubmit="return false">
+    <p class="form-sent" id="formSent">Merci. Un associé vous contactera prochainement pour convenir d'une consultation privée.</p>
+    <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);margin:-1px"><input type="hidden" name="lang" value="fr"><input type="hidden" name="back" value="/uhy-capital-preview/v4/fr/contact.html">
     <div class="f2">
-      <div class="field"><label>Nom complet</label><input type="text" placeholder="Votre nom"></div>
-      <div class="field"><label>Téléphone</label><input type="tel" placeholder="+33 ..." dir="ltr"></div>
+      <div class="field"><label>Nom complet</label><input type="text" name="name" required placeholder="Votre nom"></div>
+      <div class="field"><label>Téléphone</label><input type="tel" name="phone" placeholder="+33 ..." dir="ltr"></div>
     </div>
     <div class="f2">
-      <div class="field"><label>E-mail</label><input type="email" placeholder="nom@societe.com" dir="ltr"></div>
-      <div class="field"><label>Domaine d'intérêt</label><select><option>Family Office</option><option>Gestion de patrimoine</option><option>Banque d'investissement</option><option>Fiscalité transfrontalière</option><option>Autre</option></select></div>
+      <div class="field"><label>E-mail</label><input type="email" name="email" required placeholder="nom@societe.com" dir="ltr"></div>
+      <div class="field"><label>Domaine d'intérêt</label><select name="topic"><option>Family Office</option><option>Gestion de patrimoine</option><option>Banque d'investissement</option><option>Fiscalité transfrontalière</option><option>Autre</option></select></div>
     </div>
-    <div class="field"><label>Comment pouvons-nous vous aider&nbsp;?</label><textarea placeholder="Quelques mots sur votre situation et vos objectifs"></textarea></div>
+    <div class="field"><label>Comment pouvons-nous vous aider&nbsp;?</label><textarea name="message" placeholder="Quelques mots sur votre situation et vos objectifs"></textarea></div>
     <p class="qc qc-form">Ce service est réservé exclusivement aux clients qualifiés, au sens de la loi sur la réglementation du conseil en investissement, du marketing en investissement et de la gestion de portefeuilles, 1995.</p>
-    <label class="check"><input type="checkbox"><span>J'accepte le traitement de mes données aux fins de cette demande, conformément à la <a href="/uhy-capital-preview/v4/fr/privacy-policy.html" target="_blank" rel="noopener" style="text-decoration:underline">politique de confidentialité</a>.</span></label>
+    <label class="check"><input type="checkbox" name="consent" required><span>J'accepte le traitement de mes données aux fins de cette demande, conformément à la <a href="/uhy-capital-preview/v4/fr/privacy-policy.html" target="_blank" rel="noopener" style="text-decoration:underline">politique de confidentialité</a>.</span></label>
     <button class="btn btn-gold" type="button">Demander une consultation privée <span class="ar">&larr;</span></button>
   </form>
   <aside class="office rv">
@@ -156,6 +158,7 @@ function save(){try{localStorage.setItem('uhy_a11y',JSON.stringify(S));}catch(e)
 function apply(){H.classList.toggle('a11y-contrast',!!S.contrast);H.classList.toggle('a11y-links',!!S.links);H.classList.toggle('a11y-readable',!!S.readable);H.classList.toggle('a11y-no-anim',!!S.anim);H.classList.toggle('a11y-cursor',!!S.cursor);H.style.fontSize=S.fs?(100+S.fs*12)+'%':'';document.querySelectorAll('.a11y-opt[data-a11y]').forEach(function(b){var k=b.getAttribute('data-a11y');if(k!=='inc'&&k!=='dec')b.classList.toggle('on',!!S[k]);});}
 document.querySelectorAll('.a11y [data-a11y]').forEach(function(b){b.addEventListener('click',function(){var k=b.getAttribute('data-a11y');if(k==='inc'){S.fs=Math.min((S.fs||0)+1,4);}else if(k==='dec'){S.fs=Math.max((S.fs||0)-1,0);}else if(k==='reset'){S={};}else{S[k]=!S[k];}save();apply();});});
 apply();})();
+if(location.search.indexOf('sent=1')>-1){var fs=document.getElementById('formSent');if(fs){fs.style.display='block';try{fs.scrollIntoView({behavior:'smooth',block:'center'});}catch(e){}}}
 
 </script>
 </body>
