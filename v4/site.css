@@ -370,15 +370,19 @@ header.nav.scrolled .brand img.brand-logo{height:50px;transition:height .35s eas
 .foot .cols a{display:block;width:fit-content;text-align:start}
 .foot .cols h4{text-align:start}
 @media(max-width:560px){.foot .foot-logo{height:56px}}
-/* mobile menu: dark, on-brand, friendly */
-.mnav{background:#141319;gap:2px;padding:84px 30px 44px;overflow-y:auto}
-.mnav .mnav-logo-link{border-bottom:0;padding:0;margin-bottom:24px}
-.mnav .mnav-logo{height:48px;width:auto}
-.mnav a:not(.mnav-logo-link){color:#eceae6;border-bottom:1px solid rgba(255,255,255,.08);letter-spacing:.02em;transition:color .25s ease,padding-inline-start .25s ease}
-.mnav a:not(.mnav-logo-link):hover,.mnav a:not(.mnav-logo-link):active{color:var(--gold);padding-inline-start:10px}
-.mnav .close{color:#d7d5d1}
+/* mobile menu: 78% side drawer with dimmed scrim (click outside closes) */
+.mnav{position:fixed;inset:0;z-index:70;background:rgba(8,10,16,0);visibility:hidden;transform:none;padding:0;display:block;transition:background .35s ease,visibility .35s ease}
+.mnav.open{background:rgba(8,10,16,.55);visibility:visible;transform:none}
+.mnav-panel{position:absolute;inset-block:0;inset-inline-end:0;width:78%;max-width:338px;background:#15141b;box-shadow:-18px 0 50px rgba(0,0,0,.45);display:flex;flex-direction:column;padding:70px 28px 40px;gap:1px;overflow-y:auto;transform:translateX(100%);transition:transform .42s cubic-bezier(.4,0,.2,1)}
+[dir=rtl] .mnav-panel{box-shadow:18px 0 50px rgba(0,0,0,.45);transform:translateX(-100%)}
+.mnav.open .mnav-panel{transform:translateX(0)}
+.mnav .close{position:absolute;top:16px;inset-inline-end:22px;color:#cfcdc9;font-size:1.9rem;line-height:1;background:none;border:0;cursor:pointer;z-index:2}
+.mnav .mnav-logo-link{border-bottom:0!important;padding:0!important;margin:0 0 22px}
+.mnav .mnav-logo{height:46px;width:auto}
+.mnav a:not(.mnav-logo-link){color:#eceae6;font-size:1.3rem;border-bottom:1px solid rgba(255,255,255,.08);letter-spacing:.02em;padding:15px 2px;transition:color .25s ease,padding-inline-start .25s ease}
+.mnav a:not(.mnav-logo-link):hover,.mnav a:not(.mnav-logo-link):active{color:var(--gold);padding-inline-start:8px}
+.mnav .lo-mlink{color:var(--gold)!important;margin-top:8px;border-bottom:0!important}
 [dir=rtl] .mnav a:not(.mnav-logo-link){font-family:"Heebo",system-ui,sans-serif;font-weight:300}
-.mnav .lo-mlink{color:var(--gold);margin-top:10px}
 /* refined section eyebrow (e.g. team heading) */
 /* slightly larger designed eyebrows across the site */
 .eyebrow{font-size:.84rem}

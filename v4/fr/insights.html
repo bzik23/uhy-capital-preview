@@ -37,7 +37,8 @@
     </div>
   </div>
 </header>
-<div class="mnav" id="mnav">
+<div class="mnav" id="mnav" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="mnav-panel">
   <button class="close" aria-label="Fermer" onclick="document.getElementById('mnav').classList.remove('open')">&times;</button>
   <a class="mnav-logo-link" href="/uhy-capital-preview/v4/fr/index.html" onclick="document.getElementById('mnav').classList.remove('open')"><img class="mnav-logo" src="/uhy-capital-preview/v4/assets/logo/logo-white.png" alt="UHY Capital"></a>
   <a href="/uhy-capital-preview/v4/fr/index.html">Accueil</a>
@@ -48,6 +49,7 @@
   <a href="/uhy-capital-preview/v4/fr/insights.html">Perspectives</a>
   <a href="/uhy-capital-preview/v4/fr/contact.html">Contact</a>
   <a class="lo-mlink" href="/uhy-capital-preview/v4/fr/lotus-one.html">LOTUS&nbsp;ONE</a>
+  </div>
 </div>
 <section class="phero">
   <img class="phero-deco" src="/uhy-capital-preview/v4/assets/brand/lotus-open.png" alt="">
