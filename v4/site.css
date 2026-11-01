@@ -382,9 +382,14 @@ header.nav.scrolled .brand img.brand-logo{height:46px}
 /* lede: a touch warmer and more solid for friendliness */
 .hero.warm .lead{color:#3c3d42;font-weight:400}
 /* closing statement: prominent, warm, readable over the photo */
-.hero.warm .hero-foot{max-width:700px;margin:clamp(54px,9.5vh,118px) auto 0;padding:26px clamp(20px,4vw,44px);font-size:clamp(1.14rem,1.65vw,1.36rem);line-height:1.72;font-weight:400;color:var(--ink);position:relative;z-index:2;text-shadow:0 1px 10px rgba(246,244,239,.7);background:radial-gradient(135% 160% at 50% 50%,rgba(246,244,239,.94) 0%,rgba(246,244,239,.58) 55%,transparent 82%)}
-.hero.warm .hero-foot::before{content:"";display:block;width:42px;height:2px;border-radius:2px;background:var(--gold-line);margin:0 auto 18px}
+.hero.warm .hero-foot{max-width:660px;margin:clamp(46px,8vh,100px) auto 0;padding:30px clamp(26px,4vw,48px);font-size:clamp(1.2rem,1.75vw,1.42rem);line-height:1.68;font-weight:500;color:var(--ink);position:relative;z-index:2;background:rgba(249,247,242,.9);-webkit-backdrop-filter:blur(10px) saturate(1.04);backdrop-filter:blur(10px) saturate(1.04);border:1px solid rgba(203,174,106,.38);border-radius:20px;box-shadow:0 22px 60px rgba(23,49,79,.13),0 2px 10px rgba(23,49,79,.06)}
+.hero.warm .hero-foot::before{content:"";display:block;width:46px;height:2px;border-radius:2px;background:var(--gold-line);margin:0 auto 18px}
+/* hero CTAs: clear and inviting over the photo */
+.hero.warm .cues{margin-top:38px}
+.hero.warm .cues .btn{box-shadow:0 8px 24px rgba(23,49,79,.12)}
+.hero.warm .cues .btn:not(.btn-gold){background:rgba(249,247,242,.78);-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);border-color:var(--ink)}
+.hero.warm .cues .btn:not(.btn-gold):hover{background:var(--ink);color:#fff}
 @media(max-width:560px){
   .hero.warm{padding-top:clamp(64px,10vh,100px)}
-  .hero.warm .hero-foot{margin-top:clamp(40px,8vh,80px);font-size:1.04rem;padding:22px 16px}
+  .hero.warm .hero-foot{margin-top:clamp(38px,7vh,74px);font-size:1.08rem;padding:24px 20px}
 }
