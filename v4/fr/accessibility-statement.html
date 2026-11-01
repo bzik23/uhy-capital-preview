@@ -11,6 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/uhy-capital-preview/v4/site.css">
+<script>try{var s=JSON.parse(localStorage.getItem('uhy_a11y')||'{}'),h=document.documentElement;if(s.contrast)h.classList.add('a11y-contrast');if(s.links)h.classList.add('a11y-links');if(s.readable)h.classList.add('a11y-readable');if(s.anim)h.classList.add('a11y-no-anim');if(s.cursor)h.classList.add('a11y-cursor');if(s.fs)h.style.fontSize=(100+s.fs*12)+'%';}catch(e){}</script>
 </head>
 <body>
 <header class="nav" id="nav">
@@ -119,6 +120,24 @@
     </div>
   </div>
 </footer>
+
+<div class="a11y" id="a11y">
+  <button class="a11y-fab" aria-label="Menu d'accessibilité" aria-expanded="false" onclick="a11yToggle()"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor" aria-hidden="true"><circle cx="12" cy="3.9" r="2"/><path d="M12 7.1c-2.3.3-4.6.5-6.9.6-.6 0-1 .4-1 .95 0 .6.5 1 1.15.9L9 9.1v3L6.8 18.9c-.2.6.1 1.25.75 1.45.62.2 1.25-.12 1.45-.72L11 15.1h2l1.95 4.52c.2.6.85.92 1.47.72.64-.2.95-.85.75-1.45L15 12.1v-3l3.75.45c.65.1 1.15-.3 1.15-.9 0-.55-.4-.95-1-.95-2.3-.1-4.6-.3-6.9-.6z"/></svg></button>
+  <div class="a11y-panel" role="dialog" aria-label="Accessibilité">
+    <div class="a11y-head"><span>Accessibilité</span><button class="a11y-x" aria-label="Fermer" onclick="a11yToggle()">&times;</button></div>
+    <div class="a11y-row">
+      <button type="button" class="a11y-opt" data-a11y="dec"><b>A-</b><small>Réduire le texte</small></button>
+      <button type="button" class="a11y-opt" data-a11y="inc"><b>A+</b><small>Agrandir le texte</small></button>
+    </div>
+    <button type="button" class="a11y-opt a11y-wide" data-a11y="contrast">Contraste élevé</button>
+    <button type="button" class="a11y-opt a11y-wide" data-a11y="links">Surligner les liens</button>
+    <button type="button" class="a11y-opt a11y-wide" data-a11y="readable">Police lisible</button>
+    <button type="button" class="a11y-opt a11y-wide" data-a11y="anim">Arrêter les animations</button>
+    <button type="button" class="a11y-opt a11y-wide" data-a11y="cursor">Grand curseur</button>
+    <button type="button" class="a11y-reset" data-a11y="reset">Réinitialiser</button>
+    <a class="a11y-stmt" href="/uhy-capital-preview/v4/fr/accessibility-statement.html">Déclaration d'accessibilité</a>
+  </div>
+</div>
 <script>
 var nav=document.getElementById('nav');
 addEventListener('scroll',function(){nav.classList.toggle('scrolled',scrollY>40)},{passive:true});
@@ -130,12 +149,20 @@ if(matchMedia('(max-width:720px)').matches){
     var n=deck.children.length; if(n<2) return;
     var i=0, paused=false, rt;
     function go(k){var c=deck.children[k]; if(!c) return; var dr=deck.getBoundingClientRect(),cr=c.getBoundingClientRect(); deck.scrollBy({left:(cr.left+cr.width/2)-(dr.left+dr.width/2),behavior:'smooth'});}
-    setInterval(function(){if(paused) return; i=(i+1)%n; go(i);},1500);
+    setInterval(function(){if(paused || document.documentElement.classList.contains('a11y-no-anim')) return; i=(i+1)%n; go(i);},2000);
     deck.addEventListener('touchstart',function(){paused=true; clearTimeout(rt);},{passive:true});
     deck.addEventListener('touchend',function(){clearTimeout(rt); rt=setTimeout(function(){paused=false;},4000);},{passive:true});
     deck.addEventListener('scroll',function(){var dr=deck.getBoundingClientRect(),mid=dr.left+dr.width/2,best=0,bd=1e9; for(var j=0;j<n;j++){var cr=deck.children[j].getBoundingClientRect();var d=Math.abs(cr.left+cr.width/2-mid);if(d<bd){bd=d;best=j;}} i=best;},{passive:true});
   });
 }
+
+function a11yToggle(){var w=document.getElementById('a11y');var o=w.classList.toggle('open');w.querySelector('.a11y-fab').setAttribute('aria-expanded',o);}
+(function(){var H=document.documentElement,S={};try{S=JSON.parse(localStorage.getItem('uhy_a11y')||'{}');}catch(e){}
+function save(){try{localStorage.setItem('uhy_a11y',JSON.stringify(S));}catch(e){}}
+function apply(){H.classList.toggle('a11y-contrast',!!S.contrast);H.classList.toggle('a11y-links',!!S.links);H.classList.toggle('a11y-readable',!!S.readable);H.classList.toggle('a11y-no-anim',!!S.anim);H.classList.toggle('a11y-cursor',!!S.cursor);H.style.fontSize=S.fs?(100+S.fs*12)+'%':'';document.querySelectorAll('.a11y-opt[data-a11y]').forEach(function(b){var k=b.getAttribute('data-a11y');if(k!=='inc'&&k!=='dec')b.classList.toggle('on',!!S[k]);});}
+document.querySelectorAll('.a11y [data-a11y]').forEach(function(b){b.addEventListener('click',function(){var k=b.getAttribute('data-a11y');if(k==='inc'){S.fs=Math.min((S.fs||0)+1,4);}else if(k==='dec'){S.fs=Math.max((S.fs||0)-1,0);}else if(k==='reset'){S={};}else{S[k]=!S[k];}save();apply();});});
+apply();})();
+
 </script>
 </body>
 </html>
