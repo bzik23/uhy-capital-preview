@@ -336,7 +336,9 @@ html,body{overflow-x:hidden}
 @media(max-width:560px){.contact-form .f2{grid-template-columns:1fr}}
 .contact-form .field{display:grid;gap:6px}
 .contact-form label{font-size:.82rem;color:var(--muted)}
-.contact-form input,.contact-form select,.contact-form textarea{font:inherit;padding:11px 14px;border:1px solid var(--line);border-radius:10px;background:#fff;color:inherit;width:100%}
+.contact-form input:not([type=checkbox]),.contact-form select,.contact-form textarea{font:inherit;padding:11px 14px;border:1px solid var(--line);border-radius:10px;background:#fff;color:inherit;width:100%}
+.contact-form .check input[type=checkbox]{width:16px;height:16px;flex:0 0 auto;padding:0}
+.contact-form .check span{flex:1;min-width:0}
 .contact-form textarea{min-height:120px;resize:vertical}
 .contact-form .check{display:flex;gap:10px;align-items:flex-start;font-size:.82rem;color:var(--muted)}
 .office .map{margin-top:18px;border-radius:12px;overflow:hidden;aspect-ratio:4/3}
