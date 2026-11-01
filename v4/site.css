@@ -342,7 +342,20 @@ html,body{overflow-x:hidden}
 .contact-form textarea{min-height:120px;resize:vertical}
 .contact-form .check{display:flex;gap:10px;align-items:flex-start;font-size:.82rem;color:var(--muted)}
 .office .map{margin-top:18px;border-radius:12px;overflow:hidden;aspect-ratio:4/3}
-.office .map iframe{width:100%;height:100%;border:0;filter:grayscale(.3)}
+.office .map iframe{width:100%;height:100%;border:0;filter:grayscale(.12)}
+/* --- contact page: warmer, inviting form (not loud); scoped so the dark
+   LOTUS ONE form is untouched --- */
+.contact-sec{background:#f7f5ef}
+.contact-sec .contact-form,.contact-sec .office{background:#fff;border:1px solid #ece5d7;border-radius:18px;box-shadow:0 22px 56px rgba(23,49,79,.07),0 2px 8px rgba(23,49,79,.04)}
+.contact-sec .contact-form{padding:clamp(24px,3.4vw,40px);position:relative;overflow:hidden;gap:18px}
+.contact-sec .contact-form::before{content:"";position:absolute;top:0;inset-inline:0;height:3px;background:linear-gradient(90deg,var(--gold-line),var(--gold),var(--gold-line))}
+.contact-sec .office{padding:clamp(24px,3vw,34px)}
+.contact-sec .contact-form label{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-ink);font-weight:600}
+.contact-sec .contact-form input:not([type=checkbox]),.contact-sec .contact-form select,.contact-sec .contact-form textarea{padding:13px 16px;border:1px solid #e4ddcf;border-radius:11px;background:#fcfbf7;color:var(--ink);transition:border-color .25s ease,box-shadow .25s ease,background .25s ease}
+.contact-sec .contact-form input:not([type=checkbox]):focus,.contact-sec .contact-form select:focus,.contact-sec .contact-form textarea:focus{outline:none;border-color:var(--gold-line);background:#fff;box-shadow:0 0 0 3px rgba(203,174,106,.18)}
+.contact-sec .contact-form input::placeholder,.contact-sec .contact-form textarea::placeholder{color:#aba493}
+.contact-sec .contact-form .btn-gold{margin-top:6px;padding:16px 28px;box-shadow:0 12px 28px rgba(203,174,106,.28)}
+.contact-sec .office .map{border:1px solid #e4ddcf;box-shadow:0 8px 24px rgba(23,49,79,.06)}
 .two-paths .svc-card.path .num{font-size:.8rem}
 /* header logo image (white wordmark on the dark nav) */
 .brand img.brand-logo{height:60px;width:auto;display:block}
